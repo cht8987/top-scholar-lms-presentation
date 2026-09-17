@@ -12,7 +12,6 @@ import {
   AlertTriangle,
   CheckCircle2,
   ShieldCheck,
-  Zap,
   ExternalLink,
   Maximize2,
   Minimize2,
@@ -20,7 +19,9 @@ import {
   Calendar,
   Compass,
   LineChart,
-  Bot
+  Bot,
+  HeartHandshake,
+  Laptop
 } from 'lucide-react';
 
 export function App() {
@@ -404,22 +405,26 @@ export function App() {
                       </span>
                       <span className="text-[11px] text-[#ffd700] bg-[#d4af37]/20 px-2 py-0.5 rounded">高效协同</span>
                     </div>
-                    <ul className="text-xs space-y-3 text-gray-200">
+                    <ul className="text-xs space-y-2.5 text-gray-200">
                       <li className="flex items-center gap-2.5">
-                        <CheckCircle2 size={15} className="text-[#ffd700]" />
-                        <span><strong>一屏录单 (Intake Flow)：</strong>15秒极速完成开单与学员绑定</span>
+                        <CheckCircle2 size={15} className="text-[#ffd700] shrink-0" />
+                        <span><strong>一屏极速录单：</strong>FB线索电销谈妥后，15秒完成选期/选科/算费 Enroll</span>
                       </li>
                       <li className="flex items-center gap-2.5">
-                        <CheckCircle2 size={15} className="text-[#ffd700]" />
-                        <span><strong>期制原生引擎 (Term Engine)：</strong>自动精确计算期数与开课权限</span>
+                        <CheckCircle2 size={15} className="text-[#ffd700] shrink-0" />
+                        <span><strong>Zoom & Moodle 自动打通：</strong>出勤与作业数据自动回传进系统，告别人工录入</span>
                       </li>
                       <li className="flex items-center gap-2.5">
-                        <CheckCircle2 size={15} className="text-[#ffd700]" />
-                        <span><strong>单一学生档案 (Master Profile)：</strong>学籍、兄弟姐妹、成绩终身追溯</span>
+                        <CheckCircle2 size={15} className="text-[#ffd700] shrink-0" />
+                        <span><strong>CareList 关怀体系：</strong>实时掌握每个学生最新状况，异常缺勤/学情自动预警</span>
                       </li>
                       <li className="flex items-center gap-2.5">
-                        <CheckCircle2 size={15} className="text-[#ffd700]" />
-                        <span><strong>智能对账与续费预警：</strong>自动生成对账单与到期提醒</span>
+                        <CheckCircle2 size={15} className="text-[#ffd700] shrink-0" />
+                        <span><strong>家长端专属查阅：</strong>家长随时登入系统，透明化跟进孩子出勤与学习进展</span>
+                      </li>
+                      <li className="flex items-center gap-2.5">
+                        <CheckCircle2 size={15} className="text-[#ffd700] shrink-0" />
+                        <span><strong>期制原生引擎：</strong>自动精确计算期数与开课权限，财务 0 漏单</span>
                       </li>
                     </ul>
                   </div>
@@ -428,11 +433,11 @@ export function App() {
                 /* Flow Map */
                 <div className="glass-gold-card p-6 rounded-2xl border border-[#d4af37]/30 grid grid-cols-1 sm:grid-cols-5 gap-3 text-center">
                   {[
-                    { step: '01', title: 'FB 广告 & 销售电销', desc: 'FB 线索获取 ➔ Sales Call 谈妥意向' },
+                    { step: '01', title: 'FB 广告 & 电销', desc: 'FB 线索获取 ➔ Sales Call 谈妥意向' },
                     { step: '02', title: '一屏快速录单', desc: '选期/选科/算费一次搞定 Enroll' },
-                    { step: '03', title: '期制引擎履约', desc: '毫秒级自动分发课程权限' },
-                    { step: '04', title: '排课与课堂点名', desc: '老师一键点名记录学情' },
-                    { step: '05', title: '智能续费与分析', desc: '自动续费提醒与数据报表' },
+                    { step: '03', title: 'Zoom & Moodle 打通', desc: '出勤/上课/作业数据自动回流进系统' },
+                    { step: '04', title: 'CareList 关怀 & 家长端', desc: '实时掌握学生状态，家长在线透明查阅' },
+                    { step: '05', title: '智能续费与分析', desc: '到期自动预警、财务对账与数据图谱' },
                   ].map((item, idx) => (
                     <div key={idx} className="p-4 rounded-xl bg-black/40 border border-[#d4af37]/20 flex flex-col justify-between">
                       <div className="text-[10px] font-bold text-[#ffd700] tracking-wider mb-2">STEP {item.step}</div>
@@ -475,37 +480,48 @@ export function App() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-                {/* Value 1 */}
-                <div className="glass-gold-card p-6 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37]/60 transition-all group">
-                  <div className="w-12 h-12 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/40 flex items-center justify-center text-[#ffd700] mb-4">
-                    <Bot size={24} />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+                {/* Value 1: CareList & Parent Portal */}
+                <div className="glass-gold-card p-5 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37]/60 transition-all group">
+                  <div className="w-10 h-10 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/40 flex items-center justify-center text-[#ffd700] mb-3.5">
+                    <HeartHandshake size={22} />
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2">AI 智能助教与个性化辅导</h3>
-                  <p className="text-xs text-gray-300 leading-relaxed">
-                    基于干净的学生学籍与课堂档案，AI 可自动分析学生答题弱项、生成定制练习题并一键推送给家长，实现千人千面的教学体验。
+                  <h3 className="text-sm font-bold text-white mb-1.5">CareList 学生关怀体系</h3>
+                  <p className="text-[11px] text-gray-300 leading-relaxed">
+                    全面聚合每个学生的最新出勤、请假记录与课堂互动，异常缺课与学情滑坡自动预警，给孩子最及时的关怀。
                   </p>
                 </div>
 
-                {/* Value 2 */}
-                <div className="glass-gold-card p-6 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37]/60 transition-all group">
-                  <div className="w-12 h-12 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/40 flex items-center justify-center text-[#ffd700] mb-4">
-                    <LineChart size={24} />
+                {/* Value 2: Zoom & Moodle Live Sync */}
+                <div className="glass-gold-card p-5 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37]/60 transition-all group">
+                  <div className="w-10 h-10 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/40 flex items-center justify-center text-[#ffd700] mb-3.5">
+                    <Laptop size={22} />
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2">管理层数据驾驶舱</h3>
-                  <p className="text-xs text-gray-300 leading-relaxed">
-                    实时透视各科目招生转化、各校区营收分布、学生流失早期预警及教师排课负荷，让每一次战略决策都有真实数据支撑。
+                  <h3 className="text-sm font-bold text-white mb-1.5">Zoom & Moodle 自动打通</h3>
+                  <p className="text-[11px] text-gray-300 leading-relaxed">
+                    直播课出勤时长与 LMS 课后作业成绩秒级自动回传系统，无需人工跨平台查证，家长端也可随时登入透明查看。
                   </p>
                 </div>
 
-                {/* Value 3 */}
-                <div className="glass-gold-card p-6 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37]/60 transition-all group">
-                  <div className="w-12 h-12 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/40 flex items-center justify-center text-[#ffd700] mb-4">
-                    <Zap size={24} />
+                {/* Value 3: AI Assistant */}
+                <div className="glass-gold-card p-5 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37]/60 transition-all group">
+                  <div className="w-10 h-10 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/40 flex items-center justify-center text-[#ffd700] mb-3.5">
+                    <Bot size={22} />
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2">极简协作 · 彻底解放人力</h3>
-                  <p className="text-xs text-gray-300 leading-relaxed">
-                    老师专注好课堂，销售专注好客户，行政告别繁琐对账。自动化流程跑通后，团队人均效能提升 300% 以上。
+                  <h3 className="text-sm font-bold text-white mb-1.5">AI 智能助教与个性化辅导</h3>
+                  <p className="text-[11px] text-gray-300 leading-relaxed">
+                    基于干净的学生全周期档案，AI 自动生成专属错题集与定制辅导建议，赋能老师实现千人千面的高质量教学。
+                  </p>
+                </div>
+
+                {/* Value 4: Business Cockpit */}
+                <div className="glass-gold-card p-5 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37]/60 transition-all group">
+                  <div className="w-10 h-10 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/40 flex items-center justify-center text-[#ffd700] mb-3.5">
+                    <LineChart size={22} />
+                  </div>
+                  <h3 className="text-sm font-bold text-white mb-1.5">数据驾驶舱 · 极简提效</h3>
+                  <p className="text-[11px] text-gray-300 leading-relaxed">
+                    实时透视续费率、各科目健康度与招生转化，解放老师与行政繁琐事务，团队人均效益实现 300%+ 飞跃。
                   </p>
                 </div>
               </div>
