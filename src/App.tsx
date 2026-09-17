@@ -21,7 +21,20 @@ import {
   LineChart,
   Bot,
   HeartHandshake,
-  Laptop
+  Laptop,
+  Flame,
+  PhoneCall,
+  FileSpreadsheet,
+  Check,
+  Users,
+  Award,
+  BarChart3,
+  Lightbulb,
+  Radio,
+  BookOpen,
+  GraduationCap,
+  Bell,
+  Workflow
 } from 'lucide-react';
 
 export function App() {
@@ -57,8 +70,8 @@ export function App() {
   useEffect(() => {
     if (currentSlide === 4) {
       confetti({
-        particleCount: 80,
-        spread: 70,
+        particleCount: 90,
+        spread: 80,
         origin: { y: 0.6 },
         colors: ['#ffd700', '#d4af37', '#ffffff', '#e5a93c']
       });
@@ -78,54 +91,58 @@ export function App() {
   };
 
   const slidesMeta = [
-    { title: '启幕 · 全新升级', subtitle: 'TOP SCHOLAR 智能进化' },
-    { title: '洞察 · 现状之痛', subtitle: '信息孤岛与工作枷锁' },
-    { title: '重塑 · 数据底座', subtitle: '单一真相与一体化中台' },
-    { title: '赋能 · 团队效益', subtitle: '极简提效与无限可能' },
-    { title: '启航 · 实时体验', subtitle: '进入全新 LMS 业务系统' },
+    { title: '启幕 · 全新升级', subtitle: 'TOP SCHOLAR 智能进化', icon: Sparkles },
+    { title: '洞察 · 现状之痛', subtitle: '信息孤岛与工作枷锁', icon: AlertTriangle },
+    { title: '重塑 · 数据底座', subtitle: '单一真相与一体化中台', icon: Database },
+    { title: '赋能 · 团队效益', subtitle: '极简提效与无限可能', icon: TrendingUp },
+    { title: '启航 · 实时体验', subtitle: '进入全新 LMS 业务系统', icon: ShieldCheck },
   ];
 
   return (
     <div className="relative min-h-screen bg-[#050507] text-[#e6edf3] flex flex-col justify-between overflow-x-hidden selection:bg-[#d4af37] selection:text-black">
-      {/* Dynamic Background Glows */}
-      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#d4af37]/5 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse-slow" />
-      <div className="absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-[#f59e0b]/5 rounded-full blur-[120px] pointer-events-none -z-10" />
+      {/* Dynamic Background Glows & Particle Ambience */}
+      <div className="absolute top-0 left-1/4 w-[650px] h-[650px] bg-[#d4af37]/6 rounded-full blur-[150px] pointer-events-none -z-10 animate-pulse-slow" />
+      <div className="absolute bottom-10 right-1/4 w-[550px] h-[550px] bg-[#f59e0b]/5 rounded-full blur-[130px] pointer-events-none -z-10" />
 
       {/* Top Navbar */}
       <header className="px-6 py-4 border-b border-[#d4af37]/15 bg-[#0a0a0f]/80 backdrop-blur-md sticky top-0 z-50 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#d4af37] to-[#8c6b16] p-[1px] shadow-[0_0_15px_rgba(212,175,55,0.3)]">
-            <div className="w-full h-full bg-[#0c0c0f] rounded-lg flex items-center justify-center font-bold text-[#ffd700] text-sm tracking-wider">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#ffd700] via-[#d4af37] to-[#8c6b16] p-[1px] shadow-[0_0_20px_rgba(212,175,55,0.35)]">
+            <div className="w-full h-full bg-[#0c0c0f] rounded-xl flex items-center justify-center font-black text-[#ffd700] text-sm tracking-wider">
               TS
             </div>
           </div>
           <div>
             <div className="flex items-center gap-2">
               <span className="font-extrabold text-sm tracking-wider gold-gradient-text uppercase">TOP SCHOLAR</span>
-              <span className="px-2 py-0.5 text-[10px] font-semibold bg-[#d4af37]/10 text-[#ffd700] border border-[#d4af37]/30 rounded-full">
+              <span className="px-2 py-0.5 text-[10px] font-semibold bg-[#d4af37]/15 text-[#ffd700] border border-[#d4af37]/30 rounded-full flex items-center gap-1">
+                <Bot size={11} className="text-[#ffd700]" />
                 LMS 2.0 + AI
               </span>
             </div>
-            <p className="text-[11px] text-gray-400">全新学生管理系统 · 内部赋能培训</p>
+            <p className="text-[11px] text-gray-400">全新学生管理系统 · 内部赋能战略培训</p>
           </div>
         </div>
 
-        {/* Slide Indicators */}
+        {/* Slide Indicators with Icons */}
         <div className="hidden md:flex items-center gap-2">
-          {slidesMeta.map((s, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              className={`group flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-                currentSlide === idx
-                  ? 'bg-[#d4af37]/20 border border-[#d4af37]/60 text-[#ffd700] shadow-[0_0_12px_rgba(212,175,55,0.25)]'
-                  : 'bg-white/5 border border-white/5 text-gray-400 hover:text-gray-200 hover:border-white/10'
-              }`}
-            >
-              <span className={`w-1.5 h-1.5 rounded-full ${currentSlide === idx ? 'bg-[#ffd700]' : 'bg-gray-500'}`} />
-              <span>{idx + 1}. {s.title.split(' · ')[0]}</span>
-            </button>
-          ))}
+          {slidesMeta.map((s, idx) => {
+            const IconComp = s.icon;
+            return (
+              <button
+                key={idx}
+                onClick={() => setCurrentSlide(idx)}
+                className={`group flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                  currentSlide === idx
+                    ? 'bg-[#d4af37]/20 border border-[#d4af37]/60 text-[#ffd700] shadow-[0_0_15px_rgba(212,175,55,0.25)]'
+                    : 'bg-white/5 border border-white/5 text-gray-400 hover:text-gray-200 hover:border-white/10'
+                }`}
+              >
+                <IconComp size={13} className={currentSlide === idx ? 'text-[#ffd700]' : 'text-gray-500'} />
+                <span>{idx + 1}. {s.title.split(' · ')[0]}</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Quick Actions */}
@@ -141,8 +158,9 @@ export function App() {
             href="https://lms.topscholar.edu.my"
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg font-medium border border-[#d4af37]/40 text-[#ffd700] bg-[#d4af37]/10 hover:bg-[#d4af37]/20 transition-all shadow-[0_0_10px_rgba(212,175,55,0.15)]"
+            className="hidden sm:flex items-center gap-1.5 text-xs px-3.5 py-1.5 rounded-lg font-bold border border-[#d4af37]/50 text-[#ffd700] bg-[#d4af37]/10 hover:bg-[#d4af37]/25 transition-all shadow-[0_0_12px_rgba(212,175,55,0.2)]"
           >
+            <ShieldCheck size={13} />
             <span>Live LMS</span>
             <ExternalLink size={12} />
           </a>
@@ -156,56 +174,64 @@ export function App() {
           {currentSlide === 0 && (
             <div className="animate-in fade-in zoom-in-95 duration-500 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-6">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/30 text-[#ffd700] text-xs font-semibold tracking-wide">
-                  <Sparkles size={14} className="text-[#ffd700] animate-spin" style={{ animationDuration: '8s' }} />
-                  <span>内部专项战略升级培训 · 2026</span>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#d4af37]/15 border border-[#d4af37]/40 text-[#ffd700] text-xs font-semibold tracking-wide shadow-[0_0_15px_rgba(212,175,55,0.15)]">
+                  <Sparkles size={14} className="text-[#ffd700] animate-spin" style={{ animationDuration: '6s' }} />
+                  <span>内部专项战略升级培训 · 2026 全新启航</span>
                 </div>
 
                 <h1 className="text-4xl sm:text-6xl font-black tracking-tight leading-[1.15]">
                   全新学生管理系统
                   <br />
-                  <span className="gold-gradient-text text-5xl sm:text-7xl">LMS + AI 时代</span>
+                  <span className="gold-gradient-text text-5xl sm:text-7xl flex items-center gap-3">
+                    LMS + AI 时代
+                  </span>
                 </h1>
 
-                <p className="text-lg text-gray-300 leading-relaxed font-light max-w-xl">
+                <p className="text-base sm:text-lg text-gray-300 leading-relaxed font-light max-w-xl">
                   打破部门数据孤岛，重塑标准化招生与排课业务流。
-                  从<strong className="text-[#ffd700] font-medium"> 繁琐的手工割裂 </strong>走向
-                  <strong className="text-[#ffd700] font-medium"> 智能驱动的单一真相底座</strong>。
+                  从<strong className="text-[#ffd700] font-semibold"> 繁琐的手工割裂 </strong>走向
+                  <strong className="text-[#ffd700] font-semibold"> 智能驱动的单一真相底座</strong>。
                 </p>
 
                 {/* Speaker Cards */}
-                <div className="pt-2 grid grid-cols-2 gap-4 max-w-lg">
-                  <div className="glass-gold-card p-4 rounded-xl border border-[#d4af37]/30 flex items-center gap-3.5">
-                    <div className="w-11 h-11 rounded-full bg-[#d4af37]/20 border border-[#d4af37]/50 flex items-center justify-center font-bold text-[#ffd700] text-base">
-                      EL
+                <div className="pt-1 grid grid-cols-2 gap-4 max-w-lg">
+                  <div className="glass-gold-card p-4 rounded-xl border border-[#d4af37]/35 flex items-center gap-3.5 group hover:border-[#d4af37]/70 transition-all">
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-[#d4af37]/30 to-[#ffd700]/10 border border-[#d4af37]/60 flex items-center justify-center font-black text-[#ffd700] text-base shadow-[0_0_12px_rgba(212,175,55,0.2)]">
+                      <Users size={18} />
                     </div>
                     <div>
-                      <div className="text-sm font-bold text-white">ELSON</div>
+                      <div className="text-sm font-bold text-white flex items-center gap-1.5">
+                        <span>ELSON</span>
+                        <Award size={13} className="text-[#ffd700]" />
+                      </div>
                       <div className="text-xs text-[#d4af37]">IT & Marketing</div>
                     </div>
                   </div>
 
-                  <div className="glass-gold-card p-4 rounded-xl border border-[#d4af37]/30 flex items-center gap-3.5">
-                    <div className="w-11 h-11 rounded-full bg-[#d4af37]/20 border border-[#d4af37]/50 flex items-center justify-center font-bold text-[#ffd700] text-base">
-                      AR
+                  <div className="glass-gold-card p-4 rounded-xl border border-[#d4af37]/35 flex items-center gap-3.5 group hover:border-[#d4af37]/70 transition-all">
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-[#d4af37]/30 to-[#ffd700]/10 border border-[#d4af37]/60 flex items-center justify-center font-black text-[#ffd700] text-base shadow-[0_0_12px_rgba(212,175,55,0.2)]">
+                      <GraduationCap size={18} />
                     </div>
                     <div>
-                      <div className="text-sm font-bold text-white">Aaron 老师</div>
+                      <div className="text-sm font-bold text-white flex items-center gap-1.5">
+                        <span>Aaron 老师</span>
+                        <Award size={13} className="text-[#ffd700]" />
+                      </div>
                       <div className="text-xs text-[#d4af37]">IT & 国语教师</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-4 text-xs text-gray-400 pt-2">
-                  <span className="flex items-center gap-1.5"><Calendar size={14} className="text-[#d4af37]" /> 内部培训专场</span>
-                  <span className="flex items-center gap-1.5"><Clock size={14} className="text-[#d4af37]" /> 10:00am - 11:30am</span>
-                  <span className="flex items-center gap-1.5"><Compass size={14} className="text-[#d4af37]" /> 6B / Zoom 线上同步</span>
+                <div className="flex flex-wrap items-center gap-4 text-xs text-gray-400 pt-1">
+                  <span className="flex items-center gap-1.5 bg-black/40 px-3 py-1 rounded-lg border border-white/5"><Calendar size={14} className="text-[#d4af37]" /> 内部培训专场</span>
+                  <span className="flex items-center gap-1.5 bg-black/40 px-3 py-1 rounded-lg border border-white/5"><Clock size={14} className="text-[#d4af37]" /> 10:00am - 11:30am</span>
+                  <span className="flex items-center gap-1.5 bg-black/40 px-3 py-1 rounded-lg border border-white/5"><Compass size={14} className="text-[#d4af37]" /> 6B / Zoom 线上同步</span>
                 </div>
               </div>
 
               {/* Visual Side: Event Poster Frame */}
               <div className="lg:col-span-5 flex justify-center">
-                <div className="relative group max-w-sm rounded-2xl overflow-hidden p-1.5 bg-gradient-to-b from-[#d4af37]/40 via-[#d4af37]/10 to-transparent shadow-[0_0_40px_rgba(212,175,55,0.2)]">
+                <div className="relative group max-w-sm rounded-2xl overflow-hidden p-1.5 bg-gradient-to-b from-[#d4af37]/50 via-[#d4af37]/15 to-transparent shadow-[0_0_40px_rgba(212,175,55,0.25)]">
                   <div className="relative rounded-xl overflow-hidden bg-black">
                     <img
                       src="/poster.jpg"
@@ -213,8 +239,8 @@ export function App() {
                       className="w-full h-auto object-cover rounded-xl transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-                      <div className="text-xs text-[#d4af37] font-semibold flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                      <div className="text-xs text-[#ffd700] font-semibold flex items-center gap-2">
+                        <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
                         全新系统现已就绪 · Ready for Launch
                       </div>
                     </div>
@@ -228,8 +254,9 @@ export function App() {
           {currentSlide === 1 && (
             <div className="animate-in fade-in zoom-in-95 duration-500 space-y-6">
               <div className="text-center max-w-2xl mx-auto space-y-2">
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#f87171] bg-[#7f1d1d]/30 border border-[#f87171]/30 px-3 py-1 rounded-full">
-                  Phase 1 · 现状审视
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#f87171] bg-[#7f1d1d]/30 border border-[#f87171]/40 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
+                  <Flame size={12} className="text-[#f87171]" />
+                  Phase 1 · 现状审视与痛点
                 </span>
                 <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
                   为什么过去的模式 <span className="text-[#f87171]">必须改变？</span>
@@ -239,90 +266,90 @@ export function App() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
                 {/* Pain Card 1 */}
-                <div className="glass-dark-card p-6 rounded-2xl border border-red-500/20 hover:border-red-500/50 transition-all duration-300 relative overflow-hidden group">
+                <div className="glass-dark-card p-6 rounded-2xl border border-red-500/25 hover:border-red-500/60 transition-all duration-300 relative overflow-hidden group">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-full blur-2xl group-hover:bg-red-500/10 transition-all" />
-                  <div className="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-red-500/15 border border-red-500/35 flex items-center justify-center text-red-400 mb-5 shadow-[0_0_15px_rgba(239,68,68,0.2)]">
                     <Database size={24} />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                  <h3 className="text-base font-bold text-white mb-2 flex items-center gap-2">
                     <span>资料数据割裂与分散</span>
-                    <AlertTriangle size={16} className="text-red-400" />
+                    <AlertTriangle size={15} className="text-red-400" />
                   </h3>
                   <ul className="text-xs text-gray-300 space-y-2.5 leading-relaxed">
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400 font-bold">•</span>
+                      <FileSpreadsheet size={14} className="text-red-400 shrink-0 mt-0.5" />
                       <span>学生学籍、付费记录、排课考勤散落在 Excel、聊天记录与多套工具中。</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400 font-bold">•</span>
+                      <Users size={14} className="text-red-400 shrink-0 mt-0.5" />
                       <span>无全局「单一真实档案」，家长信息重复录入，版本不一，难以核对。</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400 font-bold">•</span>
+                      <Clock size={14} className="text-red-400 shrink-0 mt-0.5" />
                       <span>跨部门查证耗时耗力，历史资料流失严重。</span>
                     </li>
                   </ul>
                 </div>
 
                 {/* Pain Card 2 */}
-                <div className="glass-dark-card p-6 rounded-2xl border border-amber-500/20 hover:border-amber-500/50 transition-all duration-300 relative overflow-hidden group">
+                <div className="glass-dark-card p-6 rounded-2xl border border-amber-500/25 hover:border-amber-500/60 transition-all duration-300 relative overflow-hidden group">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/10 transition-all" />
-                  <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/35 flex items-center justify-center text-amber-400 mb-5 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
                     <Layers size={24} />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                  <h3 className="text-base font-bold text-white mb-2 flex items-center gap-2">
                     <span>工作流程繁琐低效</span>
-                    <AlertTriangle size={16} className="text-amber-400" />
+                    <AlertTriangle size={15} className="text-amber-400" />
                   </h3>
                   <ul className="text-xs text-gray-300 space-y-2.5 leading-relaxed">
                     <li className="flex items-start gap-2">
-                      <span className="text-amber-400 font-bold">•</span>
+                      <Workflow size={14} className="text-amber-400 shrink-0 mt-0.5" />
                       <span>销售开单、开课权限、排课点名需多人层层手工转交，流程冗长。</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-amber-400 font-bold">•</span>
+                      <Calendar size={14} className="text-amber-400 shrink-0 mt-0.5" />
                       <span>传统「期制 (Term)」计算复杂，手工对账易漏单、漏开课或错算期数。</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-amber-400 font-bold">•</span>
+                      <Clock size={14} className="text-amber-400 shrink-0 mt-0.5" />
                       <span>行政和教师大量精力被重复性杂务消耗，无法聚焦核心教学。</span>
                     </li>
                   </ul>
                 </div>
 
                 {/* Pain Card 3 */}
-                <div className="glass-dark-card p-6 rounded-2xl border border-orange-500/20 hover:border-orange-500/50 transition-all duration-300 relative overflow-hidden group">
+                <div className="glass-dark-card p-6 rounded-2xl border border-orange-500/25 hover:border-orange-500/60 transition-all duration-300 relative overflow-hidden group">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl group-hover:bg-orange-500/10 transition-all" />
-                  <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400 mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-orange-500/15 border border-orange-500/35 flex items-center justify-center text-orange-400 mb-5 shadow-[0_0_15px_rgba(249,115,22,0.2)]">
                     <Cpu size={24} />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                  <h3 className="text-base font-bold text-white mb-2 flex items-center gap-2">
                     <span>AI与数据分析遭遇瓶颈</span>
-                    <AlertTriangle size={16} className="text-orange-400" />
+                    <AlertTriangle size={15} className="text-orange-400" />
                   </h3>
                   <ul className="text-xs text-gray-300 space-y-2.5 leading-relaxed">
                     <li className="flex items-start gap-2">
-                      <span className="text-orange-400 font-bold">•</span>
+                      <Bot size={14} className="text-orange-400 shrink-0 mt-0.5" />
                       <span>数据脏乱不流通，AI 无法读取有效上下文，智能助教与自动化沦为空谈。</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-orange-400 font-bold">•</span>
+                      <BarChart3 size={14} className="text-orange-400 shrink-0 mt-0.5" />
                       <span>管理层无法实时查看留存率、续费率、学生流失预警等核心商业图谱。</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-orange-400 font-bold">•</span>
+                      <TrendingUp size={14} className="text-orange-400 shrink-0 mt-0.5" />
                       <span>难以横向扩展新校区或新业务，技术底座面临升级天花板。</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-red-950/20 border border-red-500/30 flex items-center justify-between text-xs text-red-200">
+              <div className="p-4 rounded-xl bg-red-950/30 border border-red-500/40 flex items-center justify-between text-xs text-red-200">
                 <span className="font-semibold flex items-center gap-2">
-                  <AlertTriangle size={16} className="text-red-400" />
-                  结论：如果数据底座不打通，未来无论引入多强大的 AI 工具，都无法真正落地发挥价值！
+                  <Flame size={16} className="text-red-400" />
+                  核心瓶颈：数据底座若不打通，未来无论引入多强大的 AI 工具与模型，都无法真正落地发挥价值！
                 </span>
               </div>
             </div>
@@ -332,14 +359,15 @@ export function App() {
           {currentSlide === 2 && (
             <div className="animate-in fade-in zoom-in-95 duration-500 space-y-6">
               <div className="text-center max-w-2xl mx-auto space-y-2">
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#ffd700] bg-[#d4af37]/20 border border-[#d4af37]/40 px-3 py-1 rounded-full">
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#ffd700] bg-[#d4af37]/20 border border-[#d4af37]/40 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
+                  <Database size={12} />
                   Phase 2 · 破局之道
                 </span>
                 <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
                   统一业务中台：<span className="gold-gradient-text">单一真相底座</span>
                 </h2>
                 <p className="text-sm text-gray-400">
-                  为 Top Scholar 独家定制专属期制引擎，打通「线索 ➔ 录单 ➔ 排课 ➔ 履约 ➔ 续费」全链路。
+                  为 Top Scholar 独家定制专属期制引擎与数据中枢，打通全链路业务生态。
                 </p>
               </div>
 
@@ -347,83 +375,87 @@ export function App() {
               <div className="flex justify-center gap-3">
                 <button
                   onClick={() => setActiveTab('compare')}
-                  className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 ${
                     activeTab === 'compare'
                       ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.4)]'
                       : 'bg-white/5 text-gray-400 hover:text-white'
                   }`}
                 >
-                  新旧模式对比 (Before / After)
+                  <Workflow size={13} />
+                  <span>新旧模式对比 (Before / After)</span>
                 </button>
                 <button
                   onClick={() => setActiveTab('flow')}
-                  className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 ${
                     activeTab === 'flow'
                       ? 'bg-[#d4af37] text-black shadow-[0_0_15px_rgba(212,175,55,0.4)]'
                       : 'bg-white/5 text-gray-400 hover:text-white'
                   }`}
                 >
-                  全流程业务闭环 (The Core Flow)
+                  <Radio size={13} />
+                  <span>全流程业务闭环 (The Core Flow)</span>
                 </button>
               </div>
 
               {activeTab === 'compare' ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-1">
                   {/* Before */}
                   <div className="glass-dark-card p-6 rounded-2xl border border-red-500/20 space-y-4">
                     <div className="flex items-center justify-between pb-2 border-b border-red-500/20">
                       <span className="text-sm font-bold text-red-400 flex items-center gap-2">
-                        <span>❌ 过去：多端孤岛 · 人工拼凑</span>
+                        <AlertTriangle size={16} />
+                        <span>过去：多端孤岛 · 人工拼凑</span>
                       </span>
-                      <span className="text-[11px] text-gray-400">耗时且易错</span>
+                      <span className="text-[11px] text-gray-400 bg-red-950/40 px-2 py-0.5 rounded border border-red-500/20">耗时且易错</span>
                     </div>
                     <ul className="text-xs space-y-3 text-gray-300">
                       <li className="flex items-center gap-2.5">
-                        <span className="text-red-400">✕</span>
-                        <span>微信/WhatsApp 聊完，再手动复制到 Excel</span>
+                        <span className="text-red-400 font-bold">✕</span>
+                        <span>WhatsApp / 微信聊完，再手动复制到不同 Excel</span>
                       </li>
                       <li className="flex items-center gap-2.5">
-                        <span className="text-red-400">✕</span>
-                        <span>开课需人工通知、人工算期数、人工改权限</span>
+                        <span className="text-red-400 font-bold">✕</span>
+                        <span>开课需人工通知、手工算期数、人工改权限</span>
                       </li>
                       <li className="flex items-center gap-2.5">
-                        <span className="text-red-400">✕</span>
-                        <span>换一个老师或行政，历史档案全乱套</span>
+                        <span className="text-red-400 font-bold">✕</span>
+                        <span>换一个老师或行政，历史档案全乱套无法查验</span>
                       </li>
                       <li className="flex items-center gap-2.5">
-                        <span className="text-red-400">✕</span>
+                        <span className="text-red-400 font-bold">✕</span>
                         <span>数据割裂，无法实现自动化流转与智能分析</span>
                       </li>
                     </ul>
                   </div>
 
                   {/* After */}
-                  <div className="glass-gold-card p-6 rounded-2xl border border-[#d4af37]/40 space-y-4 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
+                  <div className="glass-gold-card p-6 rounded-2xl border border-[#d4af37]/45 space-y-4 shadow-[0_0_30px_rgba(212,175,55,0.18)]">
                     <div className="flex items-center justify-between pb-2 border-b border-[#d4af37]/30">
                       <span className="text-sm font-bold text-[#ffd700] flex items-center gap-2">
-                        <span>✨ 现在：全栈自建 · 一屏掌控</span>
+                        <Sparkles size={16} className="text-[#ffd700]" />
+                        <span>现在：全栈自建 · 一体化掌控</span>
                       </span>
-                      <span className="text-[11px] text-[#ffd700] bg-[#d4af37]/20 px-2 py-0.5 rounded">高效协同</span>
+                      <span className="text-[11px] text-[#ffd700] bg-[#d4af37]/25 px-2 py-0.5 rounded font-semibold border border-[#d4af37]/40">高效协同</span>
                     </div>
                     <ul className="text-xs space-y-2.5 text-gray-200">
                       <li className="flex items-center gap-2.5">
-                        <CheckCircle2 size={15} className="text-[#ffd700] shrink-0" />
+                        <PhoneCall size={14} className="text-[#ffd700] shrink-0" />
                         <span><strong>一屏极速录单：</strong>FB线索电销谈妥后，15秒完成选期/选科/算费 Enroll</span>
                       </li>
                       <li className="flex items-center gap-2.5">
-                        <CheckCircle2 size={15} className="text-[#ffd700] shrink-0" />
+                        <Laptop size={14} className="text-[#ffd700] shrink-0" />
                         <span><strong>Zoom & Moodle 自动打通：</strong>出勤与作业数据自动回传进系统，告别人工录入</span>
                       </li>
                       <li className="flex items-center gap-2.5">
-                        <CheckCircle2 size={15} className="text-[#ffd700] shrink-0" />
+                        <HeartHandshake size={14} className="text-[#ffd700] shrink-0" />
                         <span><strong>CareList 关怀体系：</strong>实时掌握每个学生最新状况，异常缺勤/学情自动预警</span>
                       </li>
                       <li className="flex items-center gap-2.5">
-                        <CheckCircle2 size={15} className="text-[#ffd700] shrink-0" />
+                        <Users size={14} className="text-[#ffd700] shrink-0" />
                         <span><strong>家长端专属查阅：</strong>家长随时登入系统，透明化跟进孩子出勤与学习进展</span>
                       </li>
                       <li className="flex items-center gap-2.5">
-                        <CheckCircle2 size={15} className="text-[#ffd700] shrink-0" />
+                        <CheckCircle2 size={14} className="text-[#ffd700] shrink-0" />
                         <span><strong>期制原生引擎：</strong>自动精确计算期数与开课权限，财务 0 漏单</span>
                       </li>
                     </ul>
@@ -431,35 +463,52 @@ export function App() {
                 </div>
               ) : (
                 /* Flow Map */
-                <div className="glass-gold-card p-6 rounded-2xl border border-[#d4af37]/30 grid grid-cols-1 sm:grid-cols-5 gap-3 text-center">
+                <div className="glass-gold-card p-6 rounded-2xl border border-[#d4af37]/35 grid grid-cols-1 sm:grid-cols-5 gap-3 text-center">
                   {[
-                    { step: '01', title: 'FB 广告 & 电销', desc: 'FB 线索获取 ➔ Sales Call 谈妥意向' },
-                    { step: '02', title: '一屏快速录单', desc: '选期/选科/算费一次搞定 Enroll' },
-                    { step: '03', title: 'Zoom & Moodle 打通', desc: '出勤/上课/作业数据自动回流进系统' },
-                    { step: '04', title: 'CareList 关怀 & 家长端', desc: '实时掌握学生状态，家长在线透明查阅' },
-                    { step: '05', title: '智能续费与分析', desc: '到期自动预警、财务对账与数据图谱' },
-                  ].map((item, idx) => (
-                    <div key={idx} className="p-4 rounded-xl bg-black/40 border border-[#d4af37]/20 flex flex-col justify-between">
-                      <div className="text-[10px] font-bold text-[#ffd700] tracking-wider mb-2">STEP {item.step}</div>
-                      <div className="font-bold text-sm text-white mb-1">{item.title}</div>
-                      <div className="text-[11px] text-gray-400">{item.desc}</div>
-                    </div>
-                  ))}
+                    { step: '01', title: 'FB 广告 & 电销', desc: 'FB 线索获取 ➔ Sales Call 谈妥意向', icon: PhoneCall },
+                    { step: '02', title: '一屏快速录单', desc: '选期/选科/算费一次搞定 Enroll', icon: Check },
+                    { step: '03', title: 'Zoom & Moodle 打通', desc: '出勤/上课/作业数据自动回流进系统', icon: Laptop },
+                    { step: '04', title: 'CareList 关怀 & 家长端', desc: '实时掌握学生状态，家长在线透明查阅', icon: HeartHandshake },
+                    { step: '05', title: '智能续费与分析', desc: '到期自动预警、财务对账与数据图谱', icon: LineChart },
+                  ].map((item, idx) => {
+                    const FlowIcon = item.icon;
+                    return (
+                      <div key={idx} className="p-4 rounded-xl bg-black/50 border border-[#d4af37]/25 flex flex-col justify-between hover:border-[#d4af37]/60 transition-all group">
+                        <div>
+                          <div className="w-8 h-8 mx-auto rounded-lg bg-[#d4af37]/15 border border-[#d4af37]/40 flex items-center justify-center text-[#ffd700] mb-2 group-hover:scale-110 transition-transform">
+                            <FlowIcon size={16} />
+                          </div>
+                          <div className="text-[10px] font-bold text-[#ffd700] tracking-wider mb-1">STEP {item.step}</div>
+                          <div className="font-bold text-xs text-white mb-1.5">{item.title}</div>
+                        </div>
+                        <div className="text-[11px] text-gray-400">{item.desc}</div>
+                      </div>
+                    );
+                  })}
                 </div>
               )}
 
-              <div className="grid grid-cols-3 gap-4 pt-2">
-                <div className="text-center p-3 rounded-xl bg-white/5 border border-white/10">
-                  <div className="text-xl sm:text-2xl font-black text-[#ffd700]">100%</div>
-                  <div className="text-[11px] text-gray-400">数据资产归集</div>
+              <div className="grid grid-cols-3 gap-4 pt-1">
+                <div className="text-center p-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-3">
+                  <Database size={20} className="text-[#ffd700]" />
+                  <div className="text-left">
+                    <div className="text-lg font-black text-[#ffd700]">100%</div>
+                    <div className="text-[10px] text-gray-400">数据资产归集</div>
+                  </div>
                 </div>
-                <div className="text-center p-3 rounded-xl bg-white/5 border border-white/10">
-                  <div className="text-xl sm:text-2xl font-black text-[#ffd700]">70%+</div>
-                  <div className="text-[11px] text-gray-400">跨部门沟通成本降低</div>
+                <div className="text-center p-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-3">
+                  <TrendingUp size={20} className="text-[#ffd700]" />
+                  <div className="text-left">
+                    <div className="text-lg font-black text-[#ffd700]">70%+</div>
+                    <div className="text-[10px] text-gray-400">跨部门沟通成本降低</div>
+                  </div>
                 </div>
-                <div className="text-center p-3 rounded-xl bg-white/5 border border-white/10">
-                  <div className="text-xl sm:text-2xl font-black text-[#ffd700]">0 漏单</div>
-                  <div className="text-[11px] text-gray-400">期制财务精准闭环</div>
+                <div className="text-center p-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-3">
+                  <ShieldCheck size={20} className="text-[#ffd700]" />
+                  <div className="text-left">
+                    <div className="text-lg font-black text-[#ffd700]">0 漏单</div>
+                    <div className="text-[10px] text-gray-400">期制财务精准闭环</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -469,7 +518,8 @@ export function App() {
           {currentSlide === 3 && (
             <div className="animate-in fade-in zoom-in-95 duration-500 space-y-6">
               <div className="text-center max-w-2xl mx-auto space-y-2">
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#ffd700] bg-[#d4af37]/20 border border-[#d4af37]/40 px-3 py-1 rounded-full">
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#ffd700] bg-[#d4af37]/20 border border-[#d4af37]/40 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
+                  <TrendingUp size={12} />
                   Phase 3 · 价值倍增
                 </span>
                 <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
@@ -480,46 +530,58 @@ export function App() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-1">
                 {/* Value 1: CareList & Parent Portal */}
-                <div className="glass-gold-card p-5 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37]/60 transition-all group">
-                  <div className="w-10 h-10 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/40 flex items-center justify-center text-[#ffd700] mb-3.5">
+                <div className="glass-gold-card p-5 rounded-2xl border border-[#d4af37]/35 hover:border-[#d4af37]/70 transition-all group hover:-translate-y-1 duration-300">
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-[#d4af37]/30 to-[#ffd700]/10 border border-[#d4af37]/50 flex items-center justify-center text-[#ffd700] mb-3.5 shadow-[0_0_15px_rgba(212,175,55,0.25)]">
                     <HeartHandshake size={22} />
                   </div>
-                  <h3 className="text-sm font-bold text-white mb-1.5">CareList 学生关怀体系</h3>
+                  <h3 className="text-sm font-bold text-white mb-1.5 flex items-center gap-1.5">
+                    <span>CareList 关怀体系</span>
+                    <Bell size={12} className="text-[#ffd700]" />
+                  </h3>
                   <p className="text-[11px] text-gray-300 leading-relaxed">
                     全面聚合每个学生的最新出勤、请假记录与课堂互动，异常缺课与学情滑坡自动预警，给孩子最及时的关怀。
                   </p>
                 </div>
 
                 {/* Value 2: Zoom & Moodle Live Sync */}
-                <div className="glass-gold-card p-5 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37]/60 transition-all group">
-                  <div className="w-10 h-10 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/40 flex items-center justify-center text-[#ffd700] mb-3.5">
+                <div className="glass-gold-card p-5 rounded-2xl border border-[#d4af37]/35 hover:border-[#d4af37]/70 transition-all group hover:-translate-y-1 duration-300">
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-[#d4af37]/30 to-[#ffd700]/10 border border-[#d4af37]/50 flex items-center justify-center text-[#ffd700] mb-3.5 shadow-[0_0_15px_rgba(212,175,55,0.25)]">
                     <Laptop size={22} />
                   </div>
-                  <h3 className="text-sm font-bold text-white mb-1.5">Zoom & Moodle 自动打通</h3>
+                  <h3 className="text-sm font-bold text-white mb-1.5 flex items-center gap-1.5">
+                    <span>Zoom & Moodle 打通</span>
+                    <Workflow size={12} className="text-[#ffd700]" />
+                  </h3>
                   <p className="text-[11px] text-gray-300 leading-relaxed">
                     直播课出勤时长与 LMS 课后作业成绩秒级自动回传系统，无需人工跨平台查证，家长端也可随时登入透明查看。
                   </p>
                 </div>
 
                 {/* Value 3: AI Assistant */}
-                <div className="glass-gold-card p-5 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37]/60 transition-all group">
-                  <div className="w-10 h-10 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/40 flex items-center justify-center text-[#ffd700] mb-3.5">
+                <div className="glass-gold-card p-5 rounded-2xl border border-[#d4af37]/35 hover:border-[#d4af37]/70 transition-all group hover:-translate-y-1 duration-300">
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-[#d4af37]/30 to-[#ffd700]/10 border border-[#d4af37]/50 flex items-center justify-center text-[#ffd700] mb-3.5 shadow-[0_0_15px_rgba(212,175,55,0.25)]">
                     <Bot size={22} />
                   </div>
-                  <h3 className="text-sm font-bold text-white mb-1.5">AI 智能助教与个性化辅导</h3>
+                  <h3 className="text-sm font-bold text-white mb-1.5 flex items-center gap-1.5">
+                    <span>AI 智能助教 & 辅导</span>
+                    <Sparkles size={12} className="text-[#ffd700]" />
+                  </h3>
                   <p className="text-[11px] text-gray-300 leading-relaxed">
                     基于干净的学生全周期档案，AI 自动生成专属错题集与定制辅导建议，赋能老师实现千人千面的高质量教学。
                   </p>
                 </div>
 
                 {/* Value 4: Business Cockpit */}
-                <div className="glass-gold-card p-5 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37]/60 transition-all group">
-                  <div className="w-10 h-10 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/40 flex items-center justify-center text-[#ffd700] mb-3.5">
+                <div className="glass-gold-card p-5 rounded-2xl border border-[#d4af37]/35 hover:border-[#d4af37]/70 transition-all group hover:-translate-y-1 duration-300">
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-[#d4af37]/30 to-[#ffd700]/10 border border-[#d4af37]/50 flex items-center justify-center text-[#ffd700] mb-3.5 shadow-[0_0_15px_rgba(212,175,55,0.25)]">
                     <LineChart size={22} />
                   </div>
-                  <h3 className="text-sm font-bold text-white mb-1.5">数据驾驶舱 · 极简提效</h3>
+                  <h3 className="text-sm font-bold text-white mb-1.5 flex items-center gap-1.5">
+                    <span>数据驾驶舱 · 极简提效</span>
+                    <TrendingUp size={12} className="text-[#ffd700]" />
+                  </h3>
                   <p className="text-[11px] text-gray-300 leading-relaxed">
                     实时透视续费率、各科目健康度与招生转化，解放老师与行政繁琐事务，团队人均效益实现 300%+ 飞跃。
                   </p>
@@ -527,21 +589,24 @@ export function App() {
               </div>
 
               {/* Future Potential Box */}
-              <div className="p-5 rounded-2xl bg-gradient-to-r from-[#d4af37]/15 via-black/60 to-[#d4af37]/15 border border-[#d4af37]/40 flex flex-col md:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#d4af37] text-black flex items-center justify-center font-black">
-                    <TrendingUp size={20} />
+              <div className="p-5 rounded-2xl bg-gradient-to-r from-[#d4af37]/20 via-black/70 to-[#d4af37]/20 border border-[#d4af37]/45 flex flex-col md:flex-row items-center justify-between gap-4 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#ffd700] to-[#b38b14] text-black flex items-center justify-center font-black shadow-lg">
+                    <Lightbulb size={22} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-sm">让一切变得更简单，让成长变得可规模化</h4>
-                    <p className="text-xs text-gray-300">系统不仅是一套软件，更是 Top Scholar 迈向未来教育集团的数字化基石。</p>
+                    <h4 className="font-bold text-white text-sm flex items-center gap-2">
+                      <span>让一切变得更简单，让成长变得可规模化</span>
+                      <BookOpen size={14} className="text-[#ffd700]" />
+                    </h4>
+                    <p className="text-xs text-gray-300">系统不仅是一套管理工具，更是 Top Scholar 迈向未来教育集团的坚实底座。</p>
                   </div>
                 </div>
                 <button
                   onClick={() => setCurrentSlide(4)}
-                  className="px-5 py-2.5 rounded-xl font-bold text-xs gold-button text-black flex items-center gap-2 whitespace-nowrap"
+                  className="px-5 py-2.5 rounded-xl font-extrabold text-xs gold-button text-black flex items-center gap-2 whitespace-nowrap"
                 >
-                  <span>立即体验系统</span>
+                  <span>立即体验系统现场</span>
                   <ArrowRight size={14} />
                 </button>
               </div>
@@ -551,9 +616,9 @@ export function App() {
           {/* SLIDE 5: Live Demo Entry & Grand Finale (进入系统) */}
           {currentSlide === 4 && (
             <div className="animate-in fade-in zoom-in-95 duration-500 text-center space-y-8 max-w-3xl mx-auto py-4">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#d4af37]/20 border border-[#d4af37]/50 text-[#ffd700] text-xs font-semibold">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#d4af37]/20 border border-[#d4af37]/50 text-[#ffd700] text-xs font-semibold shadow-[0_0_20px_rgba(212,175,55,0.2)]">
                 <ShieldCheck size={16} />
-                <span>Top Scholar 专属数字化系统 · 已全面上线</span>
+                <span>Top Scholar 专属数字化系统 · 已全面就绪</span>
               </div>
 
               <div className="space-y-4">
@@ -569,19 +634,22 @@ export function App() {
               </div>
 
               {/* Portal Launch Card */}
-              <div className="glass-gold-card p-8 rounded-3xl border border-[#d4af37]/50 max-w-xl mx-auto shadow-[0_0_50px_rgba(212,175,55,0.25)] relative overflow-hidden">
-                <div className="absolute top-0 right-0 transform translate-x-4 -translate-y-4 w-28 h-28 bg-[#d4af37]/20 rounded-full blur-2xl" />
+              <div className="glass-gold-card p-8 rounded-3xl border border-[#d4af37]/55 max-w-xl mx-auto shadow-[0_0_60px_rgba(212,175,55,0.3)] relative overflow-hidden group">
+                <div className="absolute top-0 right-0 transform translate-x-4 -translate-y-4 w-32 h-32 bg-[#d4af37]/25 rounded-full blur-2xl group-hover:bg-[#d4af37]/35 transition-all" />
                 
                 <div className="space-y-6">
-                  <div className="flex items-center justify-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#ffd700] to-[#b38b14] p-[1px] shadow-lg">
-                      <div className="w-full h-full bg-black rounded-2xl flex items-center justify-center text-[#ffd700] font-black text-xl">
+                  <div className="flex items-center justify-center gap-3.5">
+                    <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-[#ffd700] via-[#d4af37] to-[#8c6b16] p-[1.5px] shadow-xl">
+                      <div className="w-full h-full bg-black rounded-2xl flex items-center justify-center text-[#ffd700] font-black text-2xl p-2.5">
                         TS
                       </div>
                     </div>
                     <div className="text-left">
-                      <div className="font-extrabold text-white text-lg tracking-wide">TOP SCHOLAR LMS</div>
-                      <div className="text-xs text-[#d4af37]">https://lms.topscholar.edu.my</div>
+                      <div className="font-extrabold text-white text-xl tracking-wide flex items-center gap-2">
+                        <span>TOP SCHOLAR LMS</span>
+                        <Sparkles size={16} className="text-[#ffd700]" />
+                      </div>
+                      <div className="text-xs text-[#d4af37] font-mono">https://lms.topscholar.edu.my</div>
                     </div>
                   </div>
 
@@ -589,28 +657,32 @@ export function App() {
                     href="https://lms.topscholar.edu.my"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full py-4 px-8 rounded-2xl font-extrabold text-base gold-button text-black flex items-center justify-center gap-3 group shadow-2xl"
+                    className="w-full py-4 px-8 rounded-2xl font-black text-base gold-button text-black flex items-center justify-center gap-3 group shadow-2xl"
                   >
                     <span>点击进入 LMS 系统现场展示</span>
-                    <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
+                    <ArrowRight size={20} className="transition-transform group-hover:translate-x-1.5" />
                   </a>
 
-                  <div className="grid grid-cols-3 gap-2 pt-2 text-[11px] text-gray-400">
-                    <div className="p-2 rounded-lg bg-black/40 border border-white/5">
-                      ✓ 一屏录单演示
+                  <div className="grid grid-cols-3 gap-2.5 pt-2 text-[11px] text-gray-300">
+                    <div className="p-2.5 rounded-xl bg-black/60 border border-[#d4af37]/20 flex items-center justify-center gap-1.5 font-medium">
+                      <CheckCircle2 size={13} className="text-[#ffd700]" />
+                      <span>一屏录单实操</span>
                     </div>
-                    <div className="p-2 rounded-lg bg-black/40 border border-white/5">
-                      ✓ 期制权限即时生效
+                    <div className="p-2.5 rounded-xl bg-black/60 border border-[#d4af37]/20 flex items-center justify-center gap-1.5 font-medium">
+                      <Laptop size={13} className="text-[#ffd700]" />
+                      <span>Zoom/Moodle回流</span>
                     </div>
-                    <div className="p-2 rounded-lg bg-black/40 border border-white/5">
-                      ✓ 学员档案与对账
+                    <div className="p-2.5 rounded-xl bg-black/60 border border-[#d4af37]/20 flex items-center justify-center gap-1.5 font-medium">
+                      <HeartHandshake size={13} className="text-[#ffd700]" />
+                      <span>CareList 关怀看板</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="text-xs text-gray-500 pt-2">
-                主讲人：Elson & Aaron 老师 · 感谢大家的聆听与支持
+              <div className="text-xs text-gray-400 pt-2 flex items-center justify-center gap-2">
+                <Users size={14} className="text-[#ffd700]" />
+                <span>主讲人：Elson & Aaron 老师 · 感谢大家的聆听与支持</span>
               </div>
             </div>
           )}
