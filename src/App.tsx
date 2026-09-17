@@ -428,8 +428,8 @@ export function App() {
                 /* Flow Map */
                 <div className="glass-gold-card p-6 rounded-2xl border border-[#d4af37]/30 grid grid-cols-1 sm:grid-cols-5 gap-3 text-center">
                   {[
-                    { step: '01', title: 'Leads 线索录入', desc: '统一来源与意向跟进' },
-                    { step: '02', title: '一屏快速录单', desc: '选期/选科/算费一次搞定' },
+                    { step: '01', title: 'FB 广告 & 销售电销', desc: 'FB 线索获取 ➔ Sales Call 谈妥意向' },
+                    { step: '02', title: '一屏快速录单', desc: '选期/选科/算费一次搞定 Enroll' },
                     { step: '03', title: '期制引擎履约', desc: '毫秒级自动分发课程权限' },
                     { step: '04', title: '排课与课堂点名', desc: '老师一键点名记录学情' },
                     { step: '05', title: '智能续费与分析', desc: '自动续费提醒与数据报表' },
